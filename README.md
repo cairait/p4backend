@@ -15,7 +15,7 @@
 
 ## Project Description
 
-My fourth project is dedicated to using the Python and Django skills I learned over the past two weeks. I will be making a to-do app. It will allow the user to create, update, and delete a task.
+My fourth project is dedicated to using the Python and Django skills I learned over the past two weeks. I will be making a to-do app. It will allow the user to login, choose a category for their to-do item, and create, update, and delete an item.
 
 ## Google Sheet
 
@@ -34,15 +34,12 @@ https://github.com/cairait/p4frontend/blob/master/IMG_7727.jpg
 #### MVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
 | --- | :---: |  :---: | :---: | :---: |
-| Mobile/Desktop/Ipad view | H | 4hr | 5hr | 2hr|
-| Task Previews | H | 4hr | 5hr | 4hr|
-| Submit button | H | 4hr | 5hr | 2hr|
-| Adding Submit Section | H | 8hr| 10hr | 10hr |
-| Other sections and flex| M | 10hr | 12hr | 12hr|
-| Backend | H | 4hrs| 5hr | 15hr |
-| Frontend | H | 5hr | 6hr | 6hr|
+| Authentication | H | 10hrs| 15hr | hr |
+| Research | H | 10hrs| 15hr | hr |
+| Backend | H | 20hrs| 25hr | hr |
 
-| Total | H | 41hrs| 49hrs | 51hrs |
+
+| Total | H | 20hrs| hrs | hrs |
 
 #### PostMVP
 | Component | Priority | Estimated Time | Time Invetsted | Actual Time |
