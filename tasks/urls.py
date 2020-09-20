@@ -23,6 +23,4 @@ custom_urlpatterns = [
 urlpatterns = router.urls
 urlpatterns += custom_urlpatterns
 
-# urlpatterns = [
-# 	path('', include(router.urls))
-# ]
+

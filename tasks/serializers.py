@@ -12,7 +12,7 @@ class TaskSerializer(serializers.ModelSerializer):
 
 class CategorySerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source='owner.username')
-    recipes = TaskSerializer(many=True, read_only=True, required=False)
+    # tasks = TaskSerializer(many=True, read_only=True, required=False)
 
     class Meta:
         model = Category
