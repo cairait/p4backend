@@ -36,7 +36,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    user can only delete category he created
+#    user can only delete category he created
     def destroy(self, request, *args, **kwargs):
         category = Category.objects.get(pk=self.kwargs["pk"])
         if not request.user == category.owner:
