@@ -4,10 +4,11 @@ from tasks.models import Category, Task
 
 class TaskSerializer(serializers.ModelSerializer):
     owner = serializers.ReadOnlyField(source="owner.username")
+    category_name = serializers.ReadOnlyField(source="category.name")
 
     class Meta:
         model = Task
-        fields = ('title', 'complete', 'owner', 'category')
+        fields = ('title', 'complete', 'owner', 'category', 'id', 'category_name')
 
 
 class CategorySerializer(serializers.ModelSerializer):
@@ -16,4 +17,4 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = ('name', 'description', 'owner')
+        fields = ('name', 'description', 'owner', 'id')

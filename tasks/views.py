@@ -12,11 +12,12 @@ from tasks.serializers import CategorySerializer, TaskSerializer
 
 
 class CategoryViewSet(viewsets.ModelViewSet):
+    pagination_class = None
     permission_classes = (IsAuthenticated,)
 
     def get_queryset(self):
         # list  categories per current loggedin user
-        queryset = Category.objects.all().filter(owner=self.request.user)
+        queryset = Category.objects.all()
         return queryset
 
     serializer_class = CategorySerializer
@@ -36,11 +37,11 @@ class CategoryViewSet(viewsets.ModelViewSet):
         serializer.save(owner=self.request.user)
 
     # user can only delete category he created
-    def destroy(self, request, *args, **kwargs):
-        category = Category.objects.get(pk=self.kwargs["pk"])
-        if not request.user == category.owner:
-            raise PermissionDenied("You can not delete this category")
-        return super().destroy(request, *args, **kwargs)
+    # def destroy(self, request, *args, **kwargs):
+    #     category = Category.objects.get(pk=self.kwargs["pk"])
+    #     if not request.user == category.owner:
+    #         raise PermissionDenied("You can not delete this category")
+    #     return super().destroy(request, *args, **kwargs)
 
 
 class CategoryTasks(generics.ListCreateAPIView):
@@ -84,6 +85,7 @@ class SingleCategoryTask(generics.RetrieveUpdateDestroyAPIView):
 class TasksViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
     serializer_class = TaskSerializer
+    pagination_class = None
 
     def get_queryset(self):
         queryset = Task.objects.all().filter(owner=self.request.user)
@@ -106,6 +108,7 @@ class TasksViewSet(viewsets.ModelViewSet):
                 "You have no permissions to delete this task"
             )
         return super().destroy(request, *args, **kwargs)
+
 
     def update(self, request, *args, **kwargs):
         task = Task.objects.get(pk=self.kwargs["pk"])
