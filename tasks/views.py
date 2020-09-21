@@ -36,12 +36,12 @@ class CategoryViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-    # user can only delete category he created
-    # def destroy(self, request, *args, **kwargs):
-    #     category = Category.objects.get(pk=self.kwargs["pk"])
-    #     if not request.user == category.owner:
-    #         raise PermissionDenied("You can not delete this category")
-    #     return super().destroy(request, *args, **kwargs)
+    user can only delete category he created
+    def destroy(self, request, *args, **kwargs):
+        category = Category.objects.get(pk=self.kwargs["pk"])
+        if not request.user == category.owner:
+            raise PermissionDenied("You can not delete this category")
+        return super().destroy(request, *args, **kwargs)
 
 
 class CategoryTasks(generics.ListCreateAPIView):
